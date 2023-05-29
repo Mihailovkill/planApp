@@ -1,17 +1,16 @@
-import { type Session } from "next-auth";
-import { SessionProvider } from "next-auth/react";
-import { type AppType } from "next/app";
-import "components/styles/globals.css";
+import type { AppProps } from "next/app";
+import React from "react";
+import Header from "./components/Header";
+//import Footer from "./components/Footer";
 
-const MyApp: AppType<{ session: Session | null }> = ({
-  Component,
-  pageProps: { session, ...pageProps },
-}) => {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <SessionProvider session={session}>
+    <div>
+      {/*<Header />*/}
       <Component {...pageProps} />
-    </SessionProvider>
+      {/*<Footer />*/}
+    </div>
   );
-};
+}
 
 export default MyApp;

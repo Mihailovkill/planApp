@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  flex-direction: row;
+}
+
+.filler {
+  min-width: 60vh;
+  max-width: 200vh;
+  height: 5vh;
+  border: solid 1px black;
+}
+
+.logo {
+  margin-left: 35vh;
+  margin-top: 1vh;
+  margin-bottom: 0;
+  margin-right: 10vh;
+}
+
+.buttonContainer {
+  right: 0;
+  display: flex;
+  flex-direction: row;
+}
