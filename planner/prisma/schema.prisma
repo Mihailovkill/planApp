@@ -1,0 +1,113 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+    previewFeatures = ["jsonProtocol"]
+}
+
+datasource db {
+    provider = "postgresql"
+    // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below
+    // Further reading:
+    // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
+    // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
+    url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  name      String
+  nickname  String
+  email     String   @unique
+  hashedPassword String
+  image     String?
+  showName  Boolean  @default(true)
+  posts     BlogPost[]
+  vlogs     VlogPost[]
+  tasks     Task[]
+  events    Event[]
+  followers Follower[] @relation("followers")
+  following Follower[] @relation("following")
+  comments  Comment[] 
+  likes     Like[] 
+}
+
+model BlogPost {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(100) // Max length of 100
+  content   String
+  userId    Int
+  author    User     @relation(fields: [userId], references: [id])
+  comments  Comment[]
+  likes     Like[]
+}
+
+model VlogPost {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(100) // Max length of 100
+  url       String
+  userId    Int
+  author    User     @relation(fields: [userId], references: [id])
+  comments  Comment[]
+  likes     Like[]
+}
+
+model Task {
+  id          Int     @id @default(autoincrement())
+  description String  @db.VarChar(200) // Max length of 200
+  status      String  @db.VarChar(20) // Max length of 20
+  due_date    DateTime
+  userId      Int
+  creator     User    @relation(fields: [userId], references: [id])
+  todos       Todo[]
+}
+
+model Todo {
+  id          Int     @id @default(autoincrement())
+  description String  @db.VarChar(200) // Max length of 200
+  status      String  @db.VarChar(20) // Max length of 20
+  taskId      Int
+  task        Task    @relation(fields: [taskId], references: [id])
+}
+
+model Event {
+  id          Int     @id @default(autoincrement())
+  title       String  @db.VarChar(100) // Max length of 100
+  description String  @db.VarChar(200) // Max length of 200
+  start_time  DateTime
+  end_time    DateTime
+  userId      Int
+  creator     User    @relation(fields: [userId], references: [id])
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  content   String
+  userId    Int
+  author    User     @relation(fields: [userId], references: [id])
+  postId    Int?
+  post      BlogPost? @relation(fields: [postId], references: [id])
+  vlogId    Int?
+  vlog      VlogPost? @relation(fields: [vlogId], references: [id])
+}
+
+model Like {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  postId    Int?
+  post      BlogPost? @relation(fields: [postId], references: [id])
+  vlogId    Int?
+  vlog      VlogPost? @relation(fields: [vlogId], references: [id])
+}
+
+model Follower {
+  id           Int   @id @default(autoincrement())
+  userId       Int
+  user         User  @relation("following", fields: [userId], references: [id])
+  followerId   Int
+  followerUser User  @relation("followers", fields: [followerId], references: [id])
+}
+
+
