@@ -1,5 +1,13 @@
 .LoginButton {
   padding: 10px 20px;
+  background-color: #4374e0;
   border: none;
-  background-color: aquamarine;
+  font-size: 16px;
+  color: #ffffff; /* Text Color */
+  transition: background-color 0.3s ease;
+}
+
+.LoginButton:hover {
+  background-color: #27871e; /* Primary Color */
+  color: #333333; /* Text Color */
 }

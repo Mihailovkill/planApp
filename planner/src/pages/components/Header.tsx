@@ -17,7 +17,16 @@ export default function Header() {
         />
       </Link>
 
-      <div className={styles.filler}></div>
+      <div className={styles.searchContainer}>
+        <input
+          type="text"
+          placeholder="Search..."
+          className={styles.searchInput}
+        />
+        <button className={styles.searchButton}>
+          <Image src="/searchIcon.png" alt="Search" width={10} height={11} />
+        </button>
+      </div>
 
       <div className={styles.buttonContainer}>
         <div className={styles.buttons}>
