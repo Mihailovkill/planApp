@@ -19,6 +19,10 @@ const Home: NextPage = () => {
 
         <h2 className={styles.titleRegister}>Register now</h2>
 
+        <Link href={"/register"}>
+          <button className={styles.registerButton}>Register</button>
+        </Link>
+
         <p className={styles.description}>Then you can explore:</p>
 
         <div className={styles.grid}>

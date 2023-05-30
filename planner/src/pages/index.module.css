@@ -57,3 +57,18 @@
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+
+.registerButton {
+  background-color: #4374e0; /* Primary Color */
+  color: #ffffff; /* Text Color */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.registerButton:hover {
+  background-color: #39c2c9; /* Secondary Color */
+}
