@@ -1,0 +1,39 @@
+.formContainer {
+  padding: 5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #635a5a;
+  box-shadow: 0 0 10px rgba(82, 77, 77, 0.5);
+}
+
+.span {
+  margin: 10px 5px;
+  padding: 5px;
+}
+
+.inputField {
+  margin: 10px 5px;
+  border: 2px solid #4374e0; /* Primary Color */
+  padding: 5px;
+  border-radius: 4px;
+  padding: 8px;
+  color: #333333; /* Text Color */
+}
+
+.inputField:focus {
+  outline: none;
+  border-color: #39c2c9; /* Secondary Color */
+}
+
+.signInButton {
+  border: none;
+  background: none;
+}
