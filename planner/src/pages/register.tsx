@@ -46,6 +46,11 @@ export default function Register() {
             className={styles.inputField}
           />
         </form>
+        <div className={styles.submitButtonContainer}>
+          <button className={styles.submitButton} type="submit">
+            Register
+          </button>
+        </div>
         <div className={styles.alreadyHasAcc}>
           <p className={styles.hasAccText}>
             Already have an account?
