@@ -62,3 +62,23 @@
   align-items: flex-end;
   display: flex;
 }
+
+.navbarContainer {
+  bottom: 0;
+}
+
+.dropdownButton {
+  margin-top: 100%;
+  width: 28;
+  height: 19;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.navbar {
+  margin: 30px;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+}

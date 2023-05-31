@@ -15,7 +15,6 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <main className={styles.main}>
-        <Navbar />
         <h1 className={styles.title}>
           Welcome to <Link href={"/"}>My Planner</Link>
         </h1>

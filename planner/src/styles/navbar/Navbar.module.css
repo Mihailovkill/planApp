@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem 2rem;
-  background-color: #fff;
+  background-color: #ffffff; /* Background Color */
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  z-index: 1;
 }
 
 .linksContainer {
@@ -12,29 +13,34 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  text-decoration: none;
 }
 
-.linkButton {
+.span {
   display: flex;
+  padding: 1rem 1rem;
+  font-size: 1rem;
+  color: #333333; /* Text Color */
   text-align: center;
+  text-decoration: none;
+  border: none;
+  background-color: #f5f5f5; /* Background Color */
+  cursor: pointer;
+  width: 10rem;
+  height: 3rem;
+  justify-content: center; /* Center the text inside the link */
+}
+
+.span:hover,
+.span:focus,
+.span:active {
+  color: #4374e0; /* Primary Color */
+  text-decoration: none; /* Remove underline on hover, focus, active */
 }
 
 .link {
   display: flex;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  color: #333;
+  justify-content: center;
   text-decoration: none;
-  border: none;
-  background-color: #f5f5f5;
-  cursor: pointer;
-  width: 10rem;
-}
-
-.link:hover {
-  color: #4374e0; /* Primary Color */
-}
-
-.link.active {
-  color: #4374e0; /* Primary Color */
+  text-align: center;
 }

@@ -1,9 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../../styles/Header.module.css";
+import { useState } from "react";
 import Navbar from "./navbar/Navbar";
 
 export default function Header() {
+  const [navbarVisible, setNavbarVisible] = useState(false);
+
+  const handleMouseEnter = () => {
+    setNavbarVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setNavbarVisible(false);
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.logoContainer}>
@@ -29,8 +40,28 @@ export default function Header() {
         </button>
       </div>
 
-      <div className={styles.navbar}>
-        <Navbar />
+      <div
+        className={styles.navbarContainer}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <button
+          className={styles.dropdownButton}
+          onClick={() => setNavbarVisible(!navbarVisible)}
+        >
+          <Image
+            src="/menuButton.png"
+            alt="dropdown menu"
+            width={28}
+            height={19}
+            className={styles.menuPicture}
+          />{" "}
+        </button>
+        {navbarVisible && (
+          <div className={styles.navbar}>
+            <Navbar />
+          </div>
+        )}
       </div>
     </header>
   );

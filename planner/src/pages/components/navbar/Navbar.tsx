@@ -1,30 +1,24 @@
 import styles from "../../../styles/navbar/Navbar.module.css";
 import Link from "next/link";
 
+const navLinks = [
+  { href: "/blogs", label: "Blogs" },
+  { href: "/vlogs", label: "Vlogs" },
+  { href: "/planner", label: "Planner" },
+  { href: "/calendar", label: "Calendar" },
+  { href: "/profile", label: "Profile" },
+  // Add new objects here to create more links
+];
+
 export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.linksContainer}>
-        <div className={styles.linkButton}>
-          <Link href="/blogs">
-            <button className={styles.link}>Blogs</button>
+        {navLinks.map((link, index) => (
+          <Link key={index} href={link.href} className={styles.link}>
+            <span className={styles.span}>{link.label}</span>
           </Link>
-        </div>
-        <div className={styles.linkButton}>
-          <Link href="/vlogs">
-            <button className={styles.link}>Vlogs</button>
-          </Link>
-        </div>
-        <div className={styles.linkButton}>
-          <Link href="/planner">
-            <button className={styles.link}>Planner</button>
-          </Link>
-        </div>
-        <div className={styles.linkButton}>
-          <Link href="/calendar">
-            <button className={styles.link}>Calendar</button>
-          </Link>
-        </div>
+        ))}
       </div>
     </nav>
   );
