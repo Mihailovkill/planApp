@@ -19,7 +19,7 @@
     "baseUrl": ".",
     "paths": {
       "components/*": ["./src/*"],
-      "styles/*": ["./styles/*"]
+      "api/*": ["./src/pages/api/*"]
     }
   },
   "include": [

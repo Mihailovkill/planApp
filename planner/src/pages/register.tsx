@@ -7,45 +7,64 @@ export default function Register() {
     <>
       <Header />
       <div className={styles.formContainer}>
-        <h1 className={styles.formTitle}>Register</h1>
+        <h1 className={styles.formTitle}>Registration</h1>
         <form className={styles.form}>
-          <span className={styles.span}>Username:</span>
-          <input
-            type="text"
-            maxLength={22}
-            placeholder="Username"
-            className={styles.inputField}
-          />
-          <span className={styles.span}>First name:</span>
-          <input
-            type="text"
-            maxLength={22}
-            placeholder="First name"
-            className={styles.inputField}
-          />
-          <span className={styles.span}>Last name:</span>
-          <input
-            type="text"
-            maxLength={22}
-            placeholder="Last name"
-            className={styles.inputField}
-          />
-          <span className={styles.span}>E-mail:</span>
-          <input
-            type="email"
-            maxLength={50}
-            placeholder="E-mail"
-            className={styles.inputField}
-          />
-          <span className={styles.span}>Password:</span>
-          <input
-            type="password"
-            maxLength={22}
-            placeholder="Password"
-            minLength={8}
-            className={styles.inputField}
-          />
+          <div className={styles.inputContainer}>
+            <span className={styles.span}>Username*:</span>
+            <input
+              type="text"
+              maxLength={22}
+              placeholder="Username"
+              className={styles.inputField}
+              required
+            />
+          </div>
+          <div className={styles.inputContainer}>
+            <span className={styles.span}>First name:</span>
+            <input
+              type="text"
+              maxLength={22}
+              placeholder="First name"
+              className={styles.inputField}
+            />
+          </div>
+          <div className={styles.inputContainer}>
+            <span className={styles.span}>Last name:</span>
+            <input
+              type="text"
+              maxLength={22}
+              placeholder="Last name"
+              className={styles.inputField}
+            />
+          </div>
+          <div className={styles.inputContainer}>
+            <span className={styles.span}>Real name public:</span>
+            <input type="checkbox" className={styles.checkbox} />
+          </div>
+          <div className={styles.inputContainer}>
+            <span className={styles.span}>E-mail:</span>
+            <input
+              type="email"
+              maxLength={50}
+              placeholder="E-mail"
+              className={styles.inputField}
+            />
+          </div>
+          <div className={styles.inputContainer}>
+            <span className={styles.span}>Password*:</span>
+            <input
+              type="password"
+              maxLength={22}
+              placeholder="Password"
+              minLength={8}
+              className={styles.inputField}
+              required
+            />
+          </div>
         </form>
+        <div className={styles.requiredTextContainer}>
+          <p className={styles.requiredText}>Field with * are required!</p>
+        </div>
         <div className={styles.submitButtonContainer}>
           <button className={styles.submitButton} type="submit">
             Register

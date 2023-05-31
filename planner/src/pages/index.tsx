@@ -4,6 +4,8 @@ import Head from "next/head";
 import Header from "./components/Header";
 import Link from "next/link";
 
+import Navbar from "./components/navbar/Navbar";
+
 const Home: NextPage = () => {
   return (
     <>
@@ -13,6 +15,7 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <main className={styles.main}>
+        <Navbar />
         <h1 className={styles.title}>
           Welcome to <Link href={"/"}>My Planner</Link>
         </h1>

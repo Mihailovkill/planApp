@@ -9,14 +9,18 @@
 
 .form {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   border: 2px solid #635a5a;
+  flex-direction: column;
+  justify-content: center;
   box-shadow: 0 0 10px rgba(82, 77, 77, 0.5);
+  width: 500px;
 }
 
 .span {
   margin: 10px 5px;
   padding: 5px;
+  width: 100px;
 }
 
 .inputField {
@@ -26,6 +30,8 @@
   border-radius: 4px;
   padding: 8px;
   color: #333333; /* Text Color */
+  min-width: 200px;
+  max-width: 300px;
 }
 
 .inputField:focus {
@@ -36,4 +42,25 @@
 .signInButton {
   border: none;
   background: none;
+}
+.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.submitButton {
+  margin: 10px;
+  background-color: #4374e0; /* Primary Color */
+  color: #ffffff; /* Text Color */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #39c2c9; /* Secondary Color */
 }

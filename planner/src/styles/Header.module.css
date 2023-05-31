@@ -13,7 +13,7 @@
 }
 
 .searchInput {
-  width: 60%;
+  width: 25%;
   border: 2px solid #4374e0; /* Primary Color */
   border-radius: 4px;
   padding: 8px;
@@ -37,11 +37,13 @@
   cursor: pointer;
 }
 
-.logo {
+.logoContainer {
   margin-left: 35vh;
   margin-top: 1vh;
   margin-bottom: 0;
   margin-right: 10vh;
+  width: 150px;
+  height: 75;
 }
 
 .buttonContainer {
