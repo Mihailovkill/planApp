@@ -1,0 +1,36 @@
+.blogsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.addBlog {
+  margin-bottom: 20px;
+}
+
+.addBlogButton {
+  padding: 10px;
+  border: none;
+  background-color: #4374e0;
+  color: #fff;
+  cursor: pointer;
+}
+
+.searchContainer {
+  margin-top: 20px;
+}
+
+.searchInput {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.searchButton {
+  padding: 10px;
+  margin-left: 10px;
+  border: none;
+  background-color: #4374e0;
+  color: #fff;
+  cursor: pointer;
+}

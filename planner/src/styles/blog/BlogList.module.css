@@ -1,0 +1,16 @@
+.blogList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.blogLink {
+  margin: 10px 0;
+  color: #000;
+  text-decoration: none;
+}
+
+.noBlogs {
+  color: #999;
+}

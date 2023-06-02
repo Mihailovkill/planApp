@@ -64,6 +64,8 @@
 }
 
 .navbarContainer {
+  width: 28;
+  height: 19;
   bottom: 0;
 }
 
@@ -77,7 +79,7 @@
 }
 
 .navbar {
-  margin: 30px;
+  margin: 0;
   position: absolute;
   z-index: 1;
   right: 0;
