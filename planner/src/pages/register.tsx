@@ -1,6 +1,6 @@
 import styles from "../styles/register.module.css";
 import Header from "./components/Header";
-import Link from "next/link";
+import { PrismaClient } from "@prisma/client";
 
 export default function Register() {
   return (

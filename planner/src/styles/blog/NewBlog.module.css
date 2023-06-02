@@ -1,0 +1,33 @@
+.newBlogContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.newBlogForm {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.newBlogInput,
+.newBlogTextarea {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: none;
+}
+
+.newBlogButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #4374e0;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
