@@ -1,42 +1,67 @@
-import { PrismaClient, User } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
+import { promisify } from "util";
+import crypto from "crypto";
 
-interface RegisterRequestBody {
+const prisma = new PrismaClient();
+
+const scrypt = promisify(crypto.scrypt);
+
+interface UserRegister {
   username: string;
   firstName: string;
   lastName: string;
+  showName: boolean;
   email: string;
   password: string;
 }
 
-export default async function handler(
-  req: NextApiRequest,
+interface NextApiRequestWithUserRegister extends NextApiRequest {
+  body: UserRegister;
+}
+
+export default async function handle(
+  req: NextApiRequestWithUserRegister,
   res: NextApiResponse
 ) {
-  if (req.method === "POST") {
-    const prisma = new PrismaClient();
+  const { username, firstName, lastName, showName, email, password } = req.body;
 
-    try {
-      const { username, firstName, lastName, email, password } =
-        req.body as RegisterRequestBody;
+  if (!username || !email || !password) {
+    return res
+      .status(400)
+      .json({ message: "Username, email and password are required." });
+  }
 
-      const user: User = await prisma.user.create({
-        data: {
-          name: firstName + " " + lastName,
-          nickname: username,
-          email,
-          hashedPassword: password,
-        },
-      });
+  const existingUser = await prisma.user.findUnique({
+    where: {
+      email: email,
+    },
+  });
 
-      res.status(200).json({ message: "User registered successfully" });
-    } catch (error) {
-      console.error("Failed to register user:", error);
-      res.status(500).json({ error: "Failed to register user" });
-    } finally {
-      await prisma.$disconnect();
-    }
+  if (existingUser) {
+    return res
+      .status(400)
+      .json({ message: "A user with this email already exists." });
+  }
+
+  const salt = crypto.randomBytes(8).toString("hex");
+  const derivedKey = (await scrypt(password, salt, 64)) as Buffer;
+
+  const hashedPassword = derivedKey.toString("hex");
+
+  const newUser = await prisma.user.create({
+    data: {
+      name: firstName + " " + lastName,
+      nickname: username,
+      email: email,
+      hashedPassword: `${hashedPassword}.${salt}`,
+      showName: showName || true, // default to true if not provided
+    },
+  });
+
+  if (newUser) {
+    return res.status(201).json({ message: "User registered successfully." });
   } else {
-    res.status(405).json({ error: "Method not allowed" });
+    return res.status(400).json({ message: "Registration failed." });
   }
 }

@@ -38,6 +38,7 @@ export default function Login() {
                 placeholder="Password"
               />{" "}
             </span>
+            <button className={styles.submitButton}>Log in</button>
           </form>
         </div>
       </div>
