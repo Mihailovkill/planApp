@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "../../styles/Header.module.css";
 import { useState } from "react";
 import Navbar from "./navbar/Navbar";
+import LoginButton from "./login/LoginButton";
 
 export default function Header() {
   const [navbarVisible, setNavbarVisible] = useState(false);
@@ -39,6 +40,8 @@ export default function Header() {
           <Image src="/searchIcon.png" alt="Search" width={10} height={11} />
         </button>
       </div>
+
+      <LoginButton />
 
       <div
         className={styles.navbarContainer}

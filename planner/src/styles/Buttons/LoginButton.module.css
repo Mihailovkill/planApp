@@ -1,0 +1,14 @@
+.loginButtonContainer {
+  width: 28;
+  height: 19;
+  bottom: 0;
+}
+
+.loginButton {
+  margin-top: 100%;
+  width: 28;
+  height: 19;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
