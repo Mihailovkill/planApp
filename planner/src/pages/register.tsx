@@ -14,7 +14,7 @@ export default function Register() {
 
         <div className={styles.formContainer}>
           <h1 className={styles.formTitle}>Registration</h1>
-          <form className={styles.form}>
+          <form className={styles.form} action={"/api/register"} method="post">
             <div className={styles.inputContainer}>
               <span className={styles.span}>Username*:</span>
               <input

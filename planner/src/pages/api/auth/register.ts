@@ -55,7 +55,7 @@ export default async function handle(
       nickname: username,
       email: email,
       hashedPassword: `${hashedPassword}.${salt}`,
-      showName: showName || true, // default to true if not provided
+      showName: showName || false, // default to false if not provided
     },
   });
 
